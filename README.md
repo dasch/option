@@ -62,7 +62,7 @@ The point being that the bug was much easier to find.
 This is a fairly common pattern in Erlang. The point of this library is to provide some high level functions for dealing with options. For instance, say you wish to extract the SKUs from a list of strings, disregarding the strings that contain no SKUs. Using the `option` module, it's trivial:
 
 ```erlang
-Texts = ["SKU123-456", "Refrigerator", "SKU666-666"],
+Texts = ["Product code: SKU123-456.", "Refrigerator", "This is SKU666-666!"],
 SkuOptions = [scan_sku_identifier(Text) || Text <- Texts],
 ["SKU123-456", "SKU666-666"] = option:select(SkuOptions).
 ```
