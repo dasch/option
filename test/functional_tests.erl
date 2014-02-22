@@ -14,4 +14,5 @@ example_test() ->
 
 select_test() ->
   Texts = ["Product: SKU123-456", "Refrigerator", "SKU666-666 item"],
-  ["SKU123-456", "SKU666-666"] = option:select([scan_sku_identifier(X) || X <- Texts]).
+  SkuOptions = lists:map(fun scan_sku_identifier/1, Texts),
+  ["SKU123-456", "SKU666-666"] = option:select(SkuOptions).
