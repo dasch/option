@@ -69,6 +69,13 @@ SkuOptions = [scan_sku_identifier(Text) || Text <- Texts],
 
 `option:select` takes care of extracting the values and removing the none options.
 
+Another common pattern is when, if an option is none, a default value should be used. `option:default/2` makes this easy:
+
+```erlang
+"SKU123-456" = option:default(scan_sku_identifier("Product: SKU123-456"), "N/A"),
+"N/A" = option:default(scan_sku_identifier("Microwave oven"), "N/A").
+```
+
 
 Usage
 -----
