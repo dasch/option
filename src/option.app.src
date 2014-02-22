@@ -1,0 +1,4 @@
+{application, option,
+  [
+    {vsn, "0.0.1"}
+  ]}.
