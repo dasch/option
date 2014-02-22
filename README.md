@@ -63,7 +63,7 @@ This is a fairly common pattern in Erlang. The point of this library is to provi
 
 ```erlang
 Texts = ["Product code: SKU123-456.", "Refrigerator", "This is SKU666-666!"],
-SkuOptions = [scan_sku_identifier(Text) || Text <- Texts],
+SkuOptions = lists:map(fun scan_sku_identifier/1, Texts),
 ["SKU123-456", "SKU666-666"] = option:select(SkuOptions).
 ```
 
