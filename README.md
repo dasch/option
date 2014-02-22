@@ -78,3 +78,11 @@ Any tuple `{ok, X}` will be considered an ok option with the value `X` – anyth
 - `option:select/1` extracts the ok values from a list of options.
 - `option:value/1` extracts the ok value from a single argument, raising an error if it is none.
 - `option:default/2` extracts the ok value from a single argument, returning a default value if the argument is none.
+
+
+Copyright
+---------
+
+Copyright (c) 2014 Daniel Schierbeck
+
+Licensed under the [MIT license](LICENSE).
