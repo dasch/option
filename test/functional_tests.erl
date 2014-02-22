@@ -1,12 +1,12 @@
 -module(functional_tests).
 -compile(export_all).
 
-scan_sku_identifier([]) ->
-  none;
-scan_sku_identifier([$S, $K, $U, X1, X2, X3, $-, X4, X5, X6 | _Rest]) ->
-  {ok, [$S, $K, $U, X1, X2, X3, $-, X4, X5, X6]};
-scan_sku_identifier([_ | Rest]) ->
-  scan_sku_identifier(Rest).
+scan_sku_identifier(Text) ->
+  Regex = "SKU\\d{3}-\\d{3}",
+  case re:run(Text, Regex) of
+    {match, [{Start, Length}]} -> {ok, string:substr(Text, Start + 1, Length)};
+    nomatch                    -> none
+  end.
 
 example_test() ->
   {ok, "SKU123-456"} = scan_sku_identifier("This is SKU123-456, mate"),
